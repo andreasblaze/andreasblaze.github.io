@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[333],{5560:t=>{t.exports=JSON.parse('{"title":"Testing","description":"Testing concepts","slug":"/category/testing","permalink":"/category/testing","navigation":{"previous":{"title":"git","permalink":"/git/"},"next":{"title":"testing","permalink":"/testing/"}}}')}}]);
