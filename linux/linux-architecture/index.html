@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.1.0">
 <title data-rh="true">Linux architecture | tech-notes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/linux/linux-architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Linux architecture | tech-notes"><meta data-rh="true" name="description" content="General"><meta data-rh="true" property="og:description" content="General"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/linux/linux-architecture"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/linux/linux-architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/linux/linux-architecture" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.7ba8d1d0.css">
-<script src="/assets/js/runtime~main.1869db2c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb5ca683.js" defer="defer"></script>
 <script src="/assets/js/main.5ada315f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -16,19 +16,21 @@
 <p><strong>Linux</strong> — это ядро, а это означает, что оно управляет ресурсами системы, такими как процессор, память и операции ввода-вывода.</p>
 <p>В то время как <strong>Linux</strong> является открытым исходным кодом и бесплатен в использовании, <strong>UNIX</strong> является проприетарной операционной системой, лицензия которой платная. Пример <strong>UNIX</strong> системы – <strong>MacOS</strong>.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Основными компонентами <strong>OS Linux</strong> являются: <strong>Kernel</strong> (<code> ядро</code>), <strong>System Library</strong> (<code>приложения</code>), <strong>Shell</strong> (<code>оболочка</code>), <strong>Hardware Layer</strong> (<code>апаратные компоненты</code>), <strong>System utility</strong> (<code>apt</code>, <code>cd</code>, <code>tar</code>, <code>htop</code> и тд.).</p><p><strong>Архитектура ядра</strong> разделена на две основные части:</p><ul>
-<li><strong>User Space</strong>;</li>
-<li><strong>Kernel Space</strong>.</li>
+<li>User Space;</li>
+<li>Kernel Space.</li>
 </ul><p>Основные <strong>подсистемы ядра</strong>:</p><ul>
-<li><strong>Process scheduler</strong>;</li>
-<li><strong>Memory management unit</strong>;</li>
-<li><strong>Linux File System</strong>: root(<code>/</code>) and sub-directory (<code>others</code>).</li>
-</ul></div></div>
+<li>Process scheduler;</li>
+<li>Memory management unit (<strong>MMU</strong>);</li>
+<li>Linux File System: <strong>root</strong>(<code>/</code>) and <strong>sub-directory</strong> (<code>others</code>).</li>
+</ul><p>Команда (bash cmd) оболочки (<strong>Shell</strong>) взаимодействует с оболочкой, а системный вызов (<strong>System Calls</strong>) взаимодействует с ядром (<strong>Kernel</strong>).</p><blockquote>
+<p>Когда я выполняю <code>ls</code> (команду оболочки) в своем терминале, он внутренне вызывает разные системные вызовы, такие как <code>Open()</code>, <code>read()</code>, <code>mprotect()</code>, <code>close()</code>, чтобы получить различные параметры файлов, директорий и ссылок.</p>
+</blockquote></div></div>
 <p><img loading="lazy" alt="linux-architecture" src="/assets/images/linux-architecture-b07af99241fb8e6e2a1e8bf6906eed4a.jpg" width="2081" height="1207" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="kernel-ядро">Kernel (ядро)<a href="#kernel-ядро" class="hash-link" aria-label="Direct link to Kernel (ядро)" title="Direct link to Kernel (ядро)">​</a></h2>
-<p><strong>Ядро</strong> — это небольшой специальный код, который является основным компонентом ОС Linux и напрямую взаимодействует с <code>Hardware</code>. Это промежуточный уровень между программным и аппаратным обеспечением, который обеспечивает низкоуровневое обслуживание компонентов пользовательского режима. Он полностью разработан на языке C и с архитектурой файловой системы. Кроме того, он имеет различные блоки, которые управляют различны ми операциями.
+<p><strong>Ядро</strong> — это небольшой специальный код, который является основным компонентом ОС Linux и напрямую взаимодействует с <code>Hardware</code>. Это промежуточный уровень между программным и аппаратным обеспечением, который обеспечивает низкоуровневое обслуживание компонентов пользовательского режима. Он полностью разработан на языке C и с архитектурой файловой системы. Кроме того, он имеет различные блоки, которые управляют различными операциями.
 Представляет собой монолитное ядро, что означает, что оно содержит все основные функции операционной системы в одном исполняемом файле. Он имеет высокую модульность и настраиваемость, поддерживает широкий спектр аппаратных устройств и конфигураций системы.</p>
 <p><strong>Ядро</strong> одновременно запускает несколько процессов и управляет различными ресурсами. Рассматривается как менеджер ресурсов, когда в системе одновременно запускаются несколько программ. В этом случае ядро представляет собой экземпляр, который совместно использует доступные ресурсы, такие как <code>CPU time</code>, <code>Disk space</code>, <code>Network connections</code> и т. д.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="архитектура-ядра-разделена-на-две-основные-части">Архитектура ядра разделена на две основные части:<a href="#архитектура-ядра-разделена-на-две-основные-части" class="hash-link" aria-label="Direct link to Архитектура ядра разделена на две основные части:" title="Direct link to Архитектура ядра разделена на две основные части:">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="архитектура-ядра-разделена-на-две-основные-части">Архитектура ядра раздел ена на две основные части:<a href="#архитектура-ядра-разделена-на-две-основные-части" class="hash-link" aria-label="Direct link to Архитектура ядра разделена на две основные части:" title="Direct link to Архитектура ядра разделена на две основные части:">​</a></h3>
 <ul>
 <li><strong>User Space</strong>:</li>
 </ul>
@@ -47,11 +49,11 @@
 <p>Основные <strong>подсистемы ядра</strong>:</p>
 <ul>
 <li><strong>Process scheduler</strong>: управление различными процессами, которые выполняются одновременно. Процесс — это экземпляр «исполняемой программы», такой как открытие файла, доступ к диску, доступ к внешнему ресурсу (например, принтеру) и т. д., и его можно создавать и уничтожать. Управление процессами предоставляет информацию о том, что происходит с процессом, и управляет его приоритетами, например, какой адрес следует назначить процессу, файл, выделенный для процесса, состояние процесса (например, запуск, ожидание, остановка);</li>
-<li><strong>Memory management unit</strong>: наиболее важная часть ядра, которая отвечает за назначение адресного пространства процессам и приложениям. По с ути, управление памятью назначает виртуальную память вместо физической памяти, причем последняя представляет собой фактическое адресное пространство в ОЗУ. Не путайте физическую и виртуальную память. Назначение виртуального адреса преодолевает ограничение назначения физической памяти. Преобразование физического адреса в виртуальный адрес выполняется с помощью <strong>MMU</strong> (Memory Management Unit) - модуля управления памятью, который обеспечивает защиту от помех памяти, совместное использование памяти и выделение виртуальной памяти.</li>
-<li><strong>Linux File System</strong>: Файловая система Linux представляет собой иерархически структурированное дерево данных, которое организует файловую систему. Файл — это простая структура данных (в виде некоторого байта памяти), которая может хранить на компьютере любые данные, такие как текст, изображения, видео, музыку и все, что вы захотите. Файловая система Linux организована в виде каталога в виде дерева. Каталог — это набор или группа файлов. В системе Linux доступны два типа директорий:<!-- -->
+<li><strong>Memory management unit</strong>: наиболее важная часть ядра, которая отвечает за назначение адресного пространства процессам и приложениям. По сути, управление памятью назначает виртуальную память вместо физической памяти, причем последняя представляет собой фактическое адресное пространство в ОЗУ. Не путайте физическую и виртуальную память. Назначение виртуального адреса преодолевает ограничение назначения физической памяти. Преобразование физического адреса в виртуальный адрес выполняется с помощью <strong>MMU</strong> (Memory Management Unit) - модуля управления памятью, который обеспечивает защиту от помех памяти, совместное использование памяти и выделение виртуальной памяти.</li>
+<li><strong>Linux File System</strong>: Файловая система Linux представляет собой иерархически структурированное дерево данных, которое организует файловую систему. Файл — это простая структура данных (в виде некоторого байта памяти), которая может хранить на компьютере любые данные, такие как текст, изображения, видео, музыку и все, что вы захотите. Файловая система Linux организована в виде директорий в виде дерева. Директория — это набор или группа файлов. В системе Linux доступны два типа директорий:<!-- -->
 <ul>
-<li><strong>корневая (root) директория</strong>: является основным каталогом, и доступ к нему невозможен без разрешения суперпользователя. Это родительский и основной каталог в файловой системе, обозначаемый косой чертой (<strong>/</strong>);</li>
-<li><strong>саб-директория</strong>: находится в корневом каталоге, который может быть создан или переименован пользователем.</li>
+<li><strong>корневая (root) директория</strong>: является основной директорией, и доступ к ней невозможен без разрешения суперпользователя. Это родительская и основная директория в файловой системе - (<strong>/</strong>);</li>
+<li><strong>саб-директория</strong>: находится в корневой директории, которая может быть создана или переименована пользователем.</li>
 </ul>
 </li>
 </ul>
@@ -60,14 +62,14 @@
 Некоторые из наиболее распространенных системных библиотек:</p>
 <ul>
 <li><strong>GNU C library</strong>: Это библиотека C, предоставляющая наиболее фундаментальную систему для интерфейса и выполнения программ C. Это обеспечивает множество встроенных функций для выполнения;</li>
-<li><strong>ibpthread</strong> (POSIX Threads): Эта библиотека играет важную роль в многопоточности в Linux, она позволяет пользователям создавать несколько потоков и уп равлять ими;</li>
+<li><strong>ibpthread</strong> (POSIX Threads): Эта библиотека играет важную роль в многопоточности в Linux, она позволяет пользователям создавать несколько потоков и управлять ими;</li>
 <li><strong>libdl</strong> (Dynamic Linker): Эта библиотека отвечает за загрузку и связывание файла во время выполнения;</li>
 <li><strong>libm</strong> (Math Library): Эта библиотека предоставляет пользователю все виды математических функций и их выполнение.</li>
 </ul>
 <p>Некоторые другие системные библиотеки: librt (Realtime Library), libcrypt (Cryptographic Library), libnss (Name Service Switch Library), libstdc++ (C++ Standard Library).</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="shell-оболочка">Shell (оболочка)<a href="#shell-оболочка" class="hash-link" aria-label="Direct link to Shell (оболочка)" title="Direct link to Shell (оболочка)">​</a></h2>
 <p>Оболочку можно определить как интерфейс ядра, который скрывает от пользователя внутреннее выполнение функций ядра. Пользователи могут просто ввести команду и, используя функцию ядра, выполнить конкретную задачу соответствующим образом.
-Различные типы оболочки:</p>
+Различн ые типы оболочки:</p>
 <ul>
 <li><strong>Command Line Interface (CLI)</strong>: Выполняет команду, предоставленную пользователем, указанную в форме команды. Выполняется специальная программа под названием терминал, и результат отображается в самом терминале;</li>
 <li><strong>Graphical User Interface (GUI)</strong>: Выполняет процесс, предоставленный пользователем, в графическом виде, а выходные данные отображаются в графическом окне.</li>
