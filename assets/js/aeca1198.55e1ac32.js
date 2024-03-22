@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[8824],{4572:e=>{e.exports=JSON.parse('{"title":"Terraform","description":"Terraform concepts","slug":"/category/terraform","permalink":"/category/terraform","navigation":{"previous":{"title":"Databases","permalink":"/aws/database"},"next":{"title":"terraform","permalink":"/terraform/"}}}')}}]);
