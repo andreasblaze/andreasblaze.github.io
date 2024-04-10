@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[5738],{5069:t=>{t.exports=JSON.parse('{"title":"Git","description":"Git flows","slug":"/category/git","permalink":"/category/git","navigation":{"previous":{"title":"Python","permalink":"/scripting/python"},"next":{"title":"git","permalink":"/git/"}}}')}}]);
