@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[5107],{7967:n=>{n.exports=JSON.parse('{"title":"Monitoring","description":"Monitoring concepts","slug":"/category/monitoring","permalink":"/category/monitoring","navigation":{"previous":{"title":"Jenkins","permalink":"/ci-cd/jenkins"},"next":{"title":"monitoring","permalink":"/monitoring/"}}}')}}]);
