@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[8940],{7647:e=>{e.exports=JSON.parse('{"title":"Networking","description":"Networking practices","slug":"/category/networking","permalink":"/category/networking","navigation":{"previous":{"title":"CMD\'s","permalink":"/linux/cmd"},"next":{"title":"OSI","permalink":"/networking/osi"}}}')}}]);
