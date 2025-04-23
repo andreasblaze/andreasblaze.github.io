@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[4057],{5042:e=>{e.exports=JSON.parse('{"title":"Logging","description":"Logging concepts","slug":"/category/logging","permalink":"/category/logging","navigation":{"previous":{"title":"Zabbix","permalink":"/monitoring/zabbix"},"next":{"title":"Logs Types","permalink":"/logging/"}}}')}}]);

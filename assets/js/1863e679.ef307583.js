@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[9212],{8741:e=>{e.exports=JSON.parse('{"title":"Docker","description":"Docker info","slug":"/category/docker","permalink":"/category/docker","navigation":{"previous":{"title":"Postgres","permalink":"/databases/postgres"},"next":{"title":"Docker Concepts","permalink":"/docker/concepts"}}}')}}]);
