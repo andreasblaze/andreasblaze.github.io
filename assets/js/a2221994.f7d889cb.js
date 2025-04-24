@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktech_notes=self.webpackChunktech_notes||[]).push([[3523],{7785:t=>{t.exports=JSON.parse('{"title":"Scripting","description":"Scripting skills","slug":"/category/scripting","permalink":"/category/scripting","navigation":{"previous":{"title":"Logs Types","permalink":"/logging/"},"next":{"title":"Python","permalink":"/scripting/python"}}}')}}]);
